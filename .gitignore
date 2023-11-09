@@ -1,0 +1,25 @@
+# Ignore Next.js build files
+.next/
+out/
+
+# Ignore node_modules folder
+node_modules/
+
+# Ignore development server log files
+.nextserver/
+
+# Ignore environment variables (usually stored in a .env.local file)
+.env.local
+.env
+
+# Ignore yarn.lock or package-lock.json
+yarn.lock
+package-lock.json
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore the build output directory if you specify a custom one in your project
+# Uncomment the following line and change the directory name if needed
+# /your-custom-output-directory/
