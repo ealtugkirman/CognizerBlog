@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { FaTwitter } from 'react-icons/fa';
 import { IoMdArrowDropdown } from 'react-icons/io';
-import { AiFillLinkedin } from 'react-icons/ai';
 import { getCategories } from '../services';
-import logo from '../public/assets/logo.svg';
+import CognizerLogo from '../public/assets/thecognizer.png';
+// import logo from '../public/assets/logo.svg';
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -109,11 +109,11 @@ const Header = () => {
         <div className="text-black mx-14 items-center bg-gray-100 justify-center hidden lg:flex flex-row ">
           <div className="w-1/4 flex">
             <Link className="" href="/">
-              <Image src={logo} width={50} height={50} alt="cognitive.com" />
+              <Image src={CognizerLogo} width={70} height={70} alt="cognitive.com" />
             </Link>
           </div>
           <div className="w-1/2 space-x-6 flex">
-            <span>Home</span>
+            <span><Link href="/">Home</Link></span>
             <div className="relative">
               <span
                 className="text-md px-4 flex items-center duration-300 ease-in-out hover:text-blue-500 hover:cursor-pointer"
@@ -138,8 +138,8 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <span>About Us</span>
-            <span> Publishing Policiy</span>
+            <span><Link href="/aboutUs">About Us</Link>  </span>
+            <span> <Link href="/publishingPolicy">Publishing Policy</Link> </span>
           </div>
 
           <div className="flex flex-row text-blue-500 hover:cursor-pointer text-2xl w-1/7 items-center space-x-4  ">
@@ -147,9 +147,9 @@ const Header = () => {
               className="bg-blue-500 cursor-pointer hover:bg-gray-100 hover:text-blue-500 text-lg text-white rounded-2xl px-3 py-1"
               aria-label="Toggle Menu"
             >
-              <p>Bize Ulaşın</p>
+              <Link href="/contactUs">Contact Us</Link>
             </div>
-            <a href="https://www.twitter.com" aria-label="Twitter Link">
+            <a href="https://twitter.com/the_cognizer" aria-label="Twitter Link">
               <FaTwitter />
             </a>
           </div>
@@ -197,11 +197,8 @@ const Header = () => {
             public audience and experts.
           </p>
           <div className="flex text-blue-900 text-2xl flex-row space-x-6 pt-6 justify-center">
-            <a href="https://www.twitter.com" aria-label="Twitter Link">
+            <a href="https://twitter.com/the_cognizer" aria-label="Twitter Link">
               <FaTwitter />
-            </a>
-            <a href="https://www.linkedin.com" aria-label="LinkedIn Link">
-              <AiFillLinkedin />
             </a>
           </div>
         </div>
