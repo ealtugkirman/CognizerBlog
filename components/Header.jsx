@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -13,13 +15,19 @@ const Header = () => {
   const router = useRouter();
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [delayedCloseTimeout, setDelayedCloseTimeout] = useState(null);
 
   const handleMouseEnter = () => {
+    clearTimeout(delayedCloseTimeout); // Clear any existing timeout to prevent premature close
     setDropdownOpen(true);
   };
 
   const handleMouseLeave = () => {
-    setDropdownOpen(false);
+    // Delay closing the dropdown by 200 milliseconds (adjust as needed)
+    const timeout = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 200);
+    setDelayedCloseTimeout(timeout);
   };
 
   useEffect(() => {
@@ -104,20 +112,21 @@ const Header = () => {
         id="navbar"
         className={`flex shadow-2xl bg-third font-myfont flex-col ${
           isScrolled ? 'py-0' : 'py-0'
-        } ${isScrolled ? 'lg:py-1' : 'lg:py-1'}`}
+        } ${isScrolled ? 'lg:py-3' : 'lg:py-3'}`}
       >
         <div className="text-white mx-14 items-center bg-third justify-center hidden lg:flex flex-row ">
-          <div className="w-1/4 flex">
+          <div className="w-1/4 items-center space-x-4  text-2xl flex">
             <Link className="" href="/">
               <Image
                 src={CognizerLogo}
-                width={70}
-                height={70}
+                width={60}
+                height={60}
                 alt="cognitive.com"
               />
             </Link>
+            <div> The Cognizer</div>
           </div>
-          <div className="w-1/2 space-x-6 flex">
+          <div className="w-1/2 space-x-6 mr-8 flex">
             <span>
               <Link href="/">Home</Link>
             </span>
@@ -156,11 +165,14 @@ const Header = () => {
               {' '}
               <Link href="/publishingPolicy">Publishing Policy</Link>{' '}
             </span>
+            <span>
+              <Link href="/contactUs">Contact Us</Link>{' '}
+            </span>
           </div>
 
-          <div className="flex flex-row text-blue-500 hover:cursor-pointer text-2xl w-1/7 items-center space-x-4  ">
+          <div className="flex flex-row text-blue-500 text-2xl w-1/7 items-center space-x-4  ">
             <div
-              className="bg-blue-800 cursor-pointer hover:bg-gray-100 hover:text-blue-500 text-lg text-white rounded-2xl px-3 py-1"
+              className="bg-third text-lg text-third rounded-2xl px-3 py-1"
               aria-label="Toggle Menu"
             >
               <Link href="/contactUs">Contact Us</Link>
@@ -168,7 +180,7 @@ const Header = () => {
             <a
               href="https://twitter.com/the_cognizer"
               aria-label="Twitter Link"
-              className="text-blue-400"
+              className="text-white"
             >
               <FaTwitter />
             </a>
@@ -179,13 +191,14 @@ const Header = () => {
       <div className="flex md:flex-row items-center justify-evenly">
         <div className="flex z-50 fixed justify-between px-12 items-center bg-third min-w-full shadow-2xl lg:hidden pt-20 pb-4">
           <div className="mt-2 ml-6">
-            {' '}
-            <Image
-              src={CognizerLogo}
-              width={50}
-              height={50}
-              alt="cognitive.com"
-            />
+            <Link href="/">
+              <Image
+                src={CognizerLogo}
+                width={50}
+                height={50}
+                alt="cognitive.com"
+              />
+            </Link>
           </div>{' '}
           <div className="lg:hidden ">
             <button

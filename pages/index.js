@@ -23,8 +23,6 @@ export default function Home({ posts }) {
           <div className="lg:sticky  mt-12 srelative top-8">
             <PostWidget />
             <Categories />
-            {/* <ContactUs /> */}
-            {/* <Categories /> */}
           </div>
         </div>
       </div>

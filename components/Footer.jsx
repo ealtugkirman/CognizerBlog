@@ -1,8 +1,9 @@
 import React from 'react';
+import Link from 'next/dist/client/link';
 import { FaTwitter } from 'react-icons/fa';
 
 const Footer = () => (
-  <div className="flex items-center justify-center bg-gradient-to-r from-footer via-footer to-purple-900">
+  <div className="flex items-center justify-center bg-gradient-to-r from-blue-500 via-blue-500 to-black">
     <div className="md:w-2/3 px-4 mt-20 text-white flex flex-col">
       <div className="text-3xl md:text-4xl lg:text-7xl font-bold">
         <h2 className="">The Cognizer</h2>
@@ -17,16 +18,16 @@ const Footer = () => (
         </p>
       </div>
       <div className="flex flex-col">
-        <div className="flex mt-24 mb-12 flex-row justify-between">
-          <a href="https://www.linkedin.com" className="hidden md:block cursor-pointer text-gray-400 hover:text-white uppercase" aria-label="Hakkımızda">
+        <div className="flex mt-24 mb-12 mx-4 flex-row justify-between">
+          <Link href="/aboutUs" className="md:block cursor-pointer text-sm md:text-lg text-gray-400 hover:text-white uppercase" aria-label="Hakkımızda">
             About Us
-          </a>
-          <a href="https://www.linkedin.com" className="hidden md:block cursor-pointer text-gray-400 hover:text-white uppercase" aria-label="Amaçımız">
+          </Link>
+          <Link href="/publishingPolicy" className="md:block cursor-pointer text-sm md:text-lg text-gray-400 hover:text-white uppercase" aria-label="Amaçımız">
             Publishing Policy
-          </a>
-          <a href="https://www.linkedin.com" className="hidden md:block cursor-pointer text-gray-400 hover:text-white uppercase" aria-label="İletişim">
+          </Link>
+          <Link href="/contactUs" className="md:block cursor-pointer text-sm md:text-lg text-gray-400 hover:text-white uppercase" aria-label="İletişim">
             Contact Us
-          </a>
+          </Link>
           <div className="flex text-2xl flex-row space-x-8 items-center justify-between">
             <a href="https://twitter.com/the_cognizer" aria-label="Twitter">
               <FaTwitter />
