@@ -102,34 +102,45 @@ const Header = () => {
     <div className="fixed z-40 top-0 w-full">
       <div
         id="navbar"
-        className={`flex shadow-2xl bg-gray-100 font-myfont flex-col ${
+        className={`flex shadow-2xl bg-third font-myfont flex-col ${
           isScrolled ? 'py-0' : 'py-0'
         } ${isScrolled ? 'lg:py-1' : 'lg:py-1'}`}
       >
-        <div className="text-black mx-14 items-center bg-gray-100 justify-center hidden lg:flex flex-row ">
+        <div className="text-white mx-14 items-center bg-third justify-center hidden lg:flex flex-row ">
           <div className="w-1/4 flex">
             <Link className="" href="/">
-              <Image src={CognizerLogo} width={70} height={70} alt="cognitive.com" />
+              <Image
+                src={CognizerLogo}
+                width={70}
+                height={70}
+                alt="cognitive.com"
+              />
             </Link>
           </div>
           <div className="w-1/2 space-x-6 flex">
-            <span><Link href="/">Home</Link></span>
+            <span>
+              <Link href="/">Home</Link>
+            </span>
             <div className="relative">
               <span
-                className="text-md px-4 flex items-center duration-300 ease-in-out hover:text-blue-500 hover:cursor-pointer"
+                className="text-md px-4 flex items-center duration-300 ease-in-out hover:text-blue-400 hover:cursor-pointer"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                Categories <span> <IoMdArrowDropdown /> </span>
+                Categories{' '}
+                <span>
+                  {' '}
+                  <IoMdArrowDropdown />{' '}
+                </span>
               </span>
               {isDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 bg-white border border-gray-200 shadow-md mt-1 p-2"
+                  className="absolute top-full left-0 bg-third border border-gray-200 shadow-md mt-1 p-2"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
                   {categories.map((category, index) => (
-                    <div key={index} className="text-gray-500 text-md">
+                    <div key={index} className="text-gray-100 text-md">
                       <Link href={`/category/${category.slug}`}>
                         {category.name}
                       </Link>
@@ -138,18 +149,27 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <span><Link href="/aboutUs">About Us</Link>  </span>
-            <span> <Link href="/publishingPolicy">Publishing Policy</Link> </span>
+            <span>
+              <Link href="/aboutUs">About Us</Link>{' '}
+            </span>
+            <span>
+              {' '}
+              <Link href="/publishingPolicy">Publishing Policy</Link>{' '}
+            </span>
           </div>
 
           <div className="flex flex-row text-blue-500 hover:cursor-pointer text-2xl w-1/7 items-center space-x-4  ">
             <div
-              className="bg-blue-500 cursor-pointer hover:bg-gray-100 hover:text-blue-500 text-lg text-white rounded-2xl px-3 py-1"
+              className="bg-blue-800 cursor-pointer hover:bg-gray-100 hover:text-blue-500 text-lg text-white rounded-2xl px-3 py-1"
               aria-label="Toggle Menu"
             >
               <Link href="/contactUs">Contact Us</Link>
             </div>
-            <a href="https://twitter.com/the_cognizer" aria-label="Twitter Link">
+            <a
+              href="https://twitter.com/the_cognizer"
+              aria-label="Twitter Link"
+              className="text-blue-400"
+            >
               <FaTwitter />
             </a>
           </div>
@@ -157,16 +177,22 @@ const Header = () => {
       </div>
       {/* Hamburger Menu */}
       <div className="flex md:flex-row items-center justify-evenly">
-        <div className="flex z-50 fixed justify-between px-12 items-center bg-white min-w-full shadow-2xl lg:hidden pt-20 pb-4">
-          <h1 className="text-2xl font-bold lg:hidden">
-            <Link href="/">cognitive.com</Link>
-          </h1>
-          <div className="lg:hidden">
+        <div className="flex z-50 fixed justify-between px-12 items-center bg-third min-w-full shadow-2xl lg:hidden pt-20 pb-4">
+          <div className="mt-2 ml-6">
+            {' '}
+            <Image
+              src={CognizerLogo}
+              width={50}
+              height={50}
+              alt="cognitive.com"
+            />
+          </div>{' '}
+          <div className="lg:hidden ">
             <button
               id="menu-btn"
               ref={btnRef}
               type="button"
-              className="z-50 block hamburger lg:hidden focus:outline-none"
+              className="z-50 mt-4 block hamburger lg:hidden focus:outline-none"
               aria-label="Toggle Menu"
             >
               <span className="hamburger-top" />
@@ -197,7 +223,10 @@ const Header = () => {
             public audience and experts.
           </p>
           <div className="flex text-blue-900 text-2xl flex-row space-x-6 pt-6 justify-center">
-            <a href="https://twitter.com/the_cognizer" aria-label="Twitter Link">
+            <a
+              href="https://twitter.com/the_cognizer"
+              aria-label="Twitter Link"
+            >
               <FaTwitter />
             </a>
           </div>

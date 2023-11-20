@@ -5,7 +5,7 @@ const Footer = () => (
   <div className="flex items-center justify-center bg-gradient-to-r from-footer via-footer to-purple-900">
     <div className="md:w-2/3 px-4 mt-20 text-white flex flex-col">
       <div className="text-3xl md:text-4xl lg:text-7xl font-bold">
-        <h2 className="">Cogist</h2>
+        <h2 className="">The Cognizer</h2>
       </div>
       <div className="flex mt-8 flex-col md:flex-row md:justify-between">
         <p className="text-gray-400 text-sm md:text-md">
