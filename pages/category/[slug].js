@@ -1,9 +1,11 @@
+'use client';
+
 import React from 'react';
 import { useRouter } from 'next/router';
 // import HtPodcast from '../../components/HtPodcast.jsx';
 
 import { getCategories, getCategoryPost } from '../../services';
-import { PostCard, Loader, PostWidget, ContactUs, Categories } from '../../components';
+import { PostCard, Loader, PostWidget, Categories } from '../../components';
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
@@ -25,7 +27,6 @@ const CategoryPost = ({ posts }) => {
           <div className="flex flex-col lg:sticky top-10">
             <PostWidget />
             <Categories />
-            <ContactUs />
           </div>
         </div>
       </div>
@@ -49,6 +50,6 @@ export async function getStaticPaths() {
   const categories = await getCategories();
   return {
     paths: categories.map(({ slug }) => ({ params: { slug } })),
-    fallback: true,
+    fallback: 'blocking',
   };
 }
