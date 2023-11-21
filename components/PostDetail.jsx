@@ -133,8 +133,8 @@ const PostDetail = ({ post }) => {
           <Image
             src={post.featuredImage.url}
             alt={post.title}
-            width="1000px"
-            height="500px"
+            width="800px"
+            height="600px"
             className="object-top h-full w-full object-cover  shadow-xl rounded-t-xl "
           />
         </div>
