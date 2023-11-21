@@ -13,10 +13,12 @@ const PostCard = ({ post }) => {
     <div className="bg-white border font-myfont rounded-2xl flex flex-col md:flex-row p-0 mb-6 md:mb-12">
       <div className="flex md:w-1/2 m-4">
         {post.featuredImage && (
-          <img
+          <Image
             src={post.featuredImage.url}
             alt={post.title}
             className="object-cover z-20 rounded-2xl"
+            height="200px"
+            width="600px"
           />
         )}
       </div>
