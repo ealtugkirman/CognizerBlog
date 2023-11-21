@@ -12,10 +12,14 @@ const FeaturedPostCard = ({ post }) => {
     <div className="flex md:flex-row flex-col mt-4 mb-12 font-myfont md:h-44">
       <div
         className="flex rounded-lg bg-center bg-no-repeat bg-cover shadow-xl h-32  md:w-1/2 md:h-44"
-        style={{
-          backgroundImage: `url('${post.featuredImage && post.featuredImage.url}')`,
-        }}
+      > <Image
+        src={post.featuredImage.url}
+        alt={post.title}
+        className="object-cover z-20 rounded-2xl"
+        height="200px"
+        width="600px"
       />
+      </div>
       <div className="flex md:w-1/2   flex-col rounded-lg  px-2 ml-3 py-4">
         {post.categories && (
           <div className="text-blue-500 text-xs text-left mb-2 text-shadow">
