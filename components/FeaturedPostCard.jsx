@@ -36,6 +36,7 @@ const FeaturedPostCard = ({ post }) => {
               height="20px"
               width="20px"
               className="drop-shadow-lg rounded-full"
+              loading="lazy" // Add lazy loading attribute
               src={post.author.photo.url}
             />
           )}
