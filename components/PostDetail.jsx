@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import Image from 'next/dist/client/image';
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -58,7 +59,7 @@ const PostDetail = ({ post }) => {
         );
       case 'image':
         return (
-          <img
+          <Image
             key={index}
             alt={obj.title}
             height={obj.height}
@@ -94,7 +95,7 @@ const PostDetail = ({ post }) => {
           <div className="flex flex-row my-3 pt-2 w-auto justify-between md:mx-2 items-center">
             <div className="flex flex-row items-centere">
 
-              <img
+              <Image
                 alt={post.author.name}
                 height="30px"
                 width="30px"
@@ -129,9 +130,11 @@ const PostDetail = ({ post }) => {
 
         </div>
         <div className="relative overflow-hidden shadow-md mb-6">
-          <img
+          <Image
             src={post.featuredImage.url}
-            alt={post.title}
+            alt={ post.title }
+            width="1000px"
+            height="500px"
             className="object-top h-full w-full object-cover  shadow-xl rounded-t-xl "
           />
         </div>

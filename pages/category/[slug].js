@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useRouter } from 'next/router';
-// import HtPodcast from '../../components/HtPodcast.jsx';
 
 import { getCategories, getCategoryPost } from '../../services';
 import { PostCard, Loader, PostWidget, Categories } from '../../components';
