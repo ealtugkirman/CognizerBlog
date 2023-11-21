@@ -124,7 +124,7 @@ const Header = () => {
                 alt="cognitive.com"
               />
             </Link>
-            <div> The Cognizer</div>
+            <p style={{ fontFamily: 'var(--font-futura)' }}>The Cognizer</p>
           </div>
           <div className="w-1/2 space-x-6 mr-8 flex">
             <span>

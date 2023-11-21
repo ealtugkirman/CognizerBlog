@@ -5,6 +5,18 @@
 @tailwind utilities;
 
 
+/* globals.scss */
+
+@font-face {
+  font-family: 'Futura';
+  src: url('/fonts/FUTURA.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-futura: 'Futura', sans-serif; /* Use the font-family name you defined in @font-face */
+}
 
 
 @layer base {

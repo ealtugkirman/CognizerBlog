@@ -1,9 +1,9 @@
 import React from 'react';
 
 const page = () => (
-  <div className="flex flex-col mb-8 lg:mb-40 lg:mt-52 mt-40 space-y-8 font-mysecondfont mx-12 lg:mx-80 text-center">
-    <h1 className="text-3xl lg:text-4xl font-bold">Publishing Policy</h1>
-    <p className=" text-sm lg:text-md">
+  <div className="flex flex-col mb-8 lg:mb-40 lg:mt-52 mt-40 space-y-8  mx-12 lg:mx-80 text-center">
+    <h1 className="text-3xl text-blue-500 lg:text-4xl font-bold">Publishing Policy</h1>
+    <p className=" text-sm text-gray-600 lg:text-md">
       CogIST was established as an independent community that aims to bring
       fellow cognitive scientists living and studying in Turkey together so that
       it can provide a common platform for them all in which they can
@@ -24,7 +24,7 @@ const page = () => (
       about cognitive sciences but do not know where to start to dive into this
       vast area.
     </p>
-    <p className=" text-sm lg:text-md">
+    <p className=" text-sm text-gray-600 lg:text-md">
       As CogIST keeps steadily growing, we decided to expand our reach and
       established The Cognizer with the same goals of making cognitive science
       more approachable to everyone, globally this time. The Cognizer is here to

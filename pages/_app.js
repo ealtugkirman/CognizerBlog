@@ -37,6 +37,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index,follow" />
         <title>thecognizer.com</title>
+        <link rel="stylesheet" href="/styles/globals.scss" />
       </Head>
       <Layout>
         <div className="absolute opacity-20 -top-20" />
