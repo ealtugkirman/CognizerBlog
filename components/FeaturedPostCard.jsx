@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const FeaturedPostCard = ({ post }) => {
   if (!post || !post.author || !post.author.name) {
-    return null; // Handle the case when post or its author is missing.
+    return null;
   }
 
   return (
