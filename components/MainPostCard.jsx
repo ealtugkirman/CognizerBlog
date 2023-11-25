@@ -43,7 +43,7 @@ const MainPostCard = ({ post }) => (
       </div>
     </div>
     <Link href={`/post/${post.slug}`}>
-      <span className="" />
+      <span className="cursor-pointer absolute w-full h-full" />
     </Link>
   </div>
 );
