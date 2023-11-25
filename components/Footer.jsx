@@ -3,6 +3,7 @@ import Link from 'next/dist/client/link';
 import { FaTwitter } from 'react-icons/fa';
 import Image from 'next/image';
 import CognizerLogo from '../public/assets/thecognizer.png';
+import CogistLogo from '../public/assets/cogistLogo.png';
 
 const Footer = () => (
   <div className="flex items-center justify-center bg-gradient-to-r from-blue-500 via-blue-500 to-black">
@@ -63,9 +64,15 @@ const Footer = () => (
           </div>
         </div>
         <hr className="border-gray-600" />
+       <div className='justify-center items-center mx-auto mt-12'> <Image
+          src={CogistLogo}
+          width={400}
+          height={200}
+          alt="cognitive.com"
+        />
         <p className="text-center my-12 text-gray-600">
           Copyright © 2023 rely-labs.com
-        </p>
+        </p></div>
       </div>
     </div>
   </div>

@@ -93,16 +93,8 @@ const PostDetail = ({ post }) => {
             {post.excerpt}
           </h6>
           <div className="flex flex-row my-3 pt-2 w-auto justify-between md:mx-2 items-center">
-            <div className="flex flex-row items-centere">
-
-              <Image
-                alt={post.author.name}
-                height="30px"
-                width="30px"
-                className="align-middle  hidden md:block rounded-full"
-                src={post.author.photo.url}
-              />
-              <p className="inline align-middle text-gray-500 md:ml-2 text-sm md:text-md">
+            <div className="flex flex-row items-center">
+              <p className="inline align-middle text-gray-500 text-sm md:text-md">
                 {post.author.name}
               </p>
             </div>
@@ -135,10 +127,10 @@ const PostDetail = ({ post }) => {
             alt={post.title}
             width="800px"
             height="600px"
-            className="object-top h-full w-full object-cover  shadow-xl rounded-t-xl "
+            className="object-top h-full w-full object-cover rounded-t-xl "
           />
         </div>
-        <div className=" font-myfont text-md">
+        <div className=" font-myfont  text-justify text-md">
           <div className="flex items-center justify-evenly mb-8  " />
 
           {post.youtubelink && (
