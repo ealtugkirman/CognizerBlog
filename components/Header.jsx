@@ -218,16 +218,58 @@ const Header = () => {
         <div
           id="menu"
           ref={menuRef}
-          className="fixed font-myfont bg-white z-30 top-0 bottom-0 left-0 flex-col text-center hidden lg:hidden w-2/3 min-h-screen py-1 pt-40 space-y-4 text-xl text-white"
+          className="fixed font-myfont bg-white z-30 top-0 bottom-0 left-0 flex-col text-center hidden lg:hidden w-2/3 min-h-screen py-1 pt-40 space-y-4 text-xl text-gray-800"
         >
           <div className="absolute" />
-          {categories.map((category, index) => (
+
+          {/* {categories.map((category, index) => (
             <span key={index} className="text-black text-lg px-8">
               <Link ref={btnRef} href={`/category/${category.slug}`}>
                 {category.name}
               </Link>
             </span>
-          ))}
+          ))} */}
+          <div className="relative space-y-6 justify-center mx-auto flex-col flex">
+            <span>
+              <Link href="/">Home</Link>{' '}
+            </span>
+            <span>
+              <Link href="/aboutUs">About Us</Link>{' '}
+            </span>
+            <span>
+              {' '}
+              <Link href="/publishingPolicy">Publishing Policy</Link>{' '}
+            </span>
+            <span>
+              <Link href="/contactUs">Contact Us</Link>{' '}
+            </span>
+            <span
+              className="text-md px-4 flex items-center duration-300 ease-in-out hover:text-blue-400 hover:cursor-pointer"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Categories{' '}
+              <span>
+                {' '}
+                <IoMdArrowDropdown />{' '}
+              </span>
+            </span>
+            {isDropdownOpen && (
+            <div
+              className="absolute top-full left-0 bg-third border border-gray-200 shadow-md mt-1 p-2"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              {categories.map((category, index) => (
+                <div key={index} className="text-gray-100 text-md">
+                  <Link href={`/category/${category.slug}`}>
+                    {category.name}
+                  </Link>
+                </div>
+              ))}
+            </div>
+            )}
+          </div>
           <p className="text-black text-left text-sm mx-8 pt-10">
             The Cognizer is a publishing platform initiated by CogIST, a
             cognitive science community from Turkey. On this platform, articles
