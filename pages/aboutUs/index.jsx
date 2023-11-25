@@ -1,7 +1,7 @@
 import React from 'react';
 
 const page = () => (
-  <div className="flex text-third flex-col mb-8 lg:mb-40 lg:mt-52 mt-40 space-y-8 font-mysecondfont mx-12 lg:mx-80 text-center">
+  <div className="flex text-third flex-col mb-8 lg:mb-40 lg:mt-52 mt-40 space-y-8 font-mysecondfont mx-12 lg:mx-96 text-justify">
     <h1 className="text-3xl lg:text-4xl  text-blue-500  font-bold">About Us</h1>
     <p className=" text-sm text-gray-600  lg:text-md">
       We are CogIST, a group of people gathered by our passion for cognitive

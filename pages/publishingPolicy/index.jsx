@@ -1,7 +1,7 @@
 import React from 'react';
 
 const page = () => (
-  <div className="flex flex-col mb-8 lg:mb-40 lg:mt-52 mt-40 space-y-8  mx-12 lg:mx-80 text-center">
+  <div className="flex flex-col mb-8 lg:mb-40 lg:mt-52 mt-40 space-y-8  mx-12 lg:mx-96 text-justify">
     <h1 className="text-3xl text-blue-500 lg:text-4xl font-bold">Publishing Policy</h1>
     <p className=" text-sm text-gray-600 lg:text-md">
       CogIST was established as an independent community that aims to bring
