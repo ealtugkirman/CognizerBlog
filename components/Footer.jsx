@@ -66,8 +66,8 @@ const Footer = () => (
         <hr className="border-gray-600" />
         <div className="justify-center items-center mx-auto mt-12"> <Image
           src={CogistLogo}
-          width={400}
-          height={200}
+          width={220}
+          height={100}
           alt="cognitive.com"
         />
           <p className="text-center my-12 text-gray-600">
