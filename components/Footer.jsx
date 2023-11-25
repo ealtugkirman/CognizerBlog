@@ -64,15 +64,16 @@ const Footer = () => (
           </div>
         </div>
         <hr className="border-gray-600" />
-       <div className='justify-center items-center mx-auto mt-12'> <Image
+        <div className="justify-center items-center mx-auto mt-12"> <Image
           src={CogistLogo}
           width={400}
           height={200}
           alt="cognitive.com"
         />
-        <p className="text-center my-12 text-gray-600">
-          Copyright © 2023 rely-labs.com
-        </p></div>
+          <p className="text-center my-12 text-gray-600">
+            Copyright © 2023 rely-labs.com
+          </p>
+        </div>
       </div>
     </div>
   </div>
