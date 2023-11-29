@@ -21,6 +21,7 @@ const Header = () => {
     clearTimeout(delayedCloseTimeout); // Clear any existing timeout to prevent premature close
     setDropdownOpen(true);
   };
+  const sortedCategories = categories.slice().sort((a, b) => a.name.localeCompare(b.name));
 
   const handleMouseLeave = () => {
     // Delay closing the dropdown by 200 milliseconds (adjust as needed)
@@ -148,13 +149,13 @@ const Header = () => {
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {categories.map((category, index) => (
-                    <div key={index} className="text-gray-100 text-md">
-                      <Link href={`/category/${category.slug}`}>
-                        {category.name}
-                      </Link>
-                    </div>
-                  ))}
+                    {sortedCategories.map((category, index) => (
+                      <div key={index} className="text-gray-100 text-md">
+                        <Link href={`/category/${category.slug}`}>
+                          {category.name}
+                        </Link>
+                      </div>
+                    ))}
                 </div>
               )}
             </div>
@@ -260,7 +261,7 @@ const Header = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              {categories.map((category, index) => (
+              {sortedCategories.map((category, index) => (
                 <div key={index} className="text-gray-100 text-md">
                   <Link href={`/category/${category.slug}`}>
                     {category.name}
@@ -268,6 +269,7 @@ const Header = () => {
                 </div>
               ))}
             </div>
+
             )}
           </div>
           <p className="text-black text-left text-sm mx-8 pt-10">
