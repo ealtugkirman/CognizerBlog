@@ -15,7 +15,7 @@ const MainPostCard = ({ post }) => (
     <div className="flex md:w-7/12 flex-col rounded-lg  md:px-8 py-4  ">
       {post.categories && (
         <div className="text-blue-500  text-xs md:text-sm   text-left mb-2  md:mb-4 text-shadow">
-          {post.categories.map((category) => category.name).join()}
+          {post.categories.map((category) => category.name).join(', ')}
         </div>
       )}
       <h1 className="text-black text-left mb-2 hover:underline md:mb-4 text-shadow font-semibold text-xl  md:text-2xl">
