@@ -21,7 +21,9 @@ const Header = () => {
     clearTimeout(delayedCloseTimeout); // Clear any existing timeout to prevent premature close
     setDropdownOpen(true);
   };
-  const sortedCategories = categories.slice().sort((a, b) => a.name.localeCompare(b.name));
+  const sortedCategories = categories
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   const handleMouseLeave = () => {
     // Delay closing the dropdown by 200 milliseconds (adjust as needed)
@@ -145,17 +147,20 @@ const Header = () => {
               </span>
               {isDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 bg-third border border-gray-200 shadow-md mt-1 p-2"
+                  className="absolute top-full  left-0 bg-third border border-gray-200 shadow-md mt-1 p-2 px-4 mx-4"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                    {sortedCategories.map((category, index) => (
-                      <div key={index} className="text-gray-100 text-md">
-                        <Link href={`/category/${category.slug}`}>
-                          {category.name}
-                        </Link>
-                      </div>
-                    ))}
+                  {sortedCategories.map((category, index) => (
+                    <div
+                      key={index}
+                      className="text-gray-100  space-y-1 mt-2 hover:text-blue-600 duration-500 text-md"
+                    >
+                      <Link href={`/category/${category.slug}`}>
+                        {category.name}
+                      </Link>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
@@ -256,20 +261,19 @@ const Header = () => {
               </span>
             </span>
             {isDropdownOpen && (
-            <div
-              className="absolute top-full left-0 bg-third border border-gray-200 shadow-md mt-1 p-2"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              {sortedCategories.map((category, index) => (
-                <div key={index} className="text-gray-100 text-md">
-                  <Link href={`/category/${category.slug}`}>
-                    {category.name}
-                  </Link>
-                </div>
-              ))}
-            </div>
-
+              <div
+                className="absolute top-full left-0 bg-third border border-gray-200 shadow-md mt-1 p-2"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                {sortedCategories.map((category, index) => (
+                  <div key={index} className="text-gray-100 hover:text-blue-600 duration-500 text-md">
+                    <Link href={`/category/${category.slug}`}>
+                      {category.name}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
           <p className="text-black text-left text-sm mx-8 pt-10">

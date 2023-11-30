@@ -1,5 +1,6 @@
-import React from 'react';
-import { useRouter } from 'next/router';
+// Import necessary modules
+import React from "react";
+import { useRouter } from "next/router";
 
 import {
   PostDetail,
@@ -7,9 +8,9 @@ import {
   Comments,
   CommentsForm,
   Loader,
-} from '../../components';
-import { getPosts, getPostDetails } from '../../services';
-import { AdjacentPosts } from '../../sections';
+} from "../../components";
+import { getPosts, getPostDetails } from "../../services";
+import { AdjacentPosts } from "../../sections";
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
@@ -41,20 +42,45 @@ export default PostDetails;
 
 // Fetch data at build time
 export async function getStaticProps({ params }) {
-  const data = await getPostDetails(params.slug);
-  return {
-    props: {
-      post: data,
-    },
-  };
+  try {
+    const data = await getPostDetails(params.slug);
+    return {
+      props: {
+        post: data,
+      },
+    };
+  } catch (error) {
+    // Handle rate-limiting error
+    if (error.response?.status === 429) {
+      // Implement retry logic or notify the user about the rate-limiting issue
+      console.error("Rate limit exceeded. Please try again later.");
+      return {
+        notFound: true,
+      };
+    }
+
+    // Handle other errors
+    console.error("Error fetching post details:", error.message);
+    return {
+      notFound: true,
+    };
+  }
 }
 
 // Specify dynamic routes to pre-render pages based on data.
 // The HTML is generated at build time and will be reused on each request.
 export async function getStaticPaths() {
-  const posts = await getPosts();
-  return {
-    paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: true,
-  };
+  try {
+    const posts = await getPosts();
+    return {
+      paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
+      fallback: true,
+    };
+  } catch (error) {
+    console.error("Error fetching posts:", error.message);
+    return {
+      paths: [],
+      fallback: true,
+    };
+  }
 }

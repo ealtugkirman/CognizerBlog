@@ -121,13 +121,13 @@ const PostDetail = ({ post }) => {
           </div>
 
         </div>
-        <div className="relative overflow-hidden shadow-md mb-6">
+        <div className="relative overflow-hidden mb-6">
           <Image
             src={post.featuredImage.url}
             alt={post.title}
             width="800px"
             height="600px"
-            className="object-top h-full w-full object-cover rounded-t-xl "
+            className="object-top h-full w-full object-cover rounded-xl "
           />
         </div>
         <div className=" font-myfont  text-justify text-md">

@@ -1,5 +1,5 @@
-'use client';
-
+/* eslint-disable no-console */
+// Import necessary modules
 import React from 'react';
 import { useRouter } from 'next/router';
 
@@ -17,9 +17,9 @@ const CategoryPost = ({ posts }) => {
     <div className="container mx-auto mt-32 px-4 md:px-10 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
-          {posts.map((post, index) => (
+          { posts.map((post, index) => (
             <PostCard key={index} post={post.node} />
-          ))}
+          )) }
         </div>
 
         <div className="col-span-1 lg:col-span-4">
@@ -32,23 +32,45 @@ const CategoryPost = ({ posts }) => {
     </div>
   );
 };
+
 export default CategoryPost;
 
-// Fetch data at build time
 export async function getStaticProps({ params }) {
-  const posts = await getCategoryPost(params.slug);
+  try {
+    const posts = await getCategoryPost(params.slug);
+    return {
+      props: { posts },
+    };
+  } catch (error) {
+    // Handle rate-limiting error
+    if (error.response?.status === 429) {
+      // Implement retry logic or notify the user about the rate-limiting issue
+      console.error('Rate limit exceeded. Please try again later.');
+      return {
+        notFound: true,
+      };
+    }
 
-  return {
-    props: { posts },
-  };
+    // Handle other errors
+    console.error('Error fetching data:', error.message);
+    return {
+      notFound: true,
+    };
+  }
 }
 
-// Specify dynamic routes to pre-render pages based on data.
-// The HTML is generated at build time and will be reused on each request.
 export async function getStaticPaths() {
-  const categories = await getCategories();
-  return {
-    paths: categories.map(({ slug }) => ({ params: { slug } })),
-    fallback: 'blocking',
-  };
+  try {
+    const categories = await getCategories();
+    return {
+      paths: categories.map(({ slug }) => ({ params: { slug } })),
+      fallback: 'blocking',
+    };
+  } catch (error) {
+    console.log('Error fetching categories:', error.message);
+    return {
+      paths: [],
+      fallback: 'blocking',
+    };
+  }
 }
