@@ -11,7 +11,7 @@ export default function Home({ posts }) {
       </div>
 
       <header className="flex py-4 pb-8 md:ml-8  md:mt-4">
-        <h1 className="font-myfont text-2xl font-bold">Güncel İçerikler</h1>
+        <h1 className="font-myfont text-2xl font-bold">Current Content</h1>
       </header>
       <div className="grid container mx-auto  grid-cols-1 lg:grid-cols-12 gap-1 md:gap-6 lg:gap-6">
         <div className="lg:col-span-8  md:pr-8 border-black col-span-1">
