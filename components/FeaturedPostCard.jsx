@@ -4,7 +4,7 @@ import moment from 'moment';
 import Link from 'next/link';
 
 const FeaturedPostCard = ({ post }) => {
-  if (!post || !post.author || !post.author.name) {
+  if (!post || !post.author || !post.author.name || !post.featuredImage || !post.featuredImage.url) {
     return null;
   }
 
