@@ -18,7 +18,7 @@ const Footer = () => (
             alt="cognitive.com"
           />
           <p className="text-3xl  lg:text-7xl ml-12" style={{ fontFamily: 'var(--font-futura)' }}>
-            THE COGNİZER
+            THE COGNIZER
           </p>
         </div>
         <p className=" text-2xl lg:text-4xl" style={{ fontFamily: 'var(--font-futura)' }}>
