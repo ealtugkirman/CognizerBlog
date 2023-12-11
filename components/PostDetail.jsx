@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
 import Image from 'next/dist/client/image';
 
 const PostDetail = ({ post }) => {
+  useEffect(() => {
+    // Trigger a re-render when post data changes
+  }, [post]);
+
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -75,15 +79,12 @@ const PostDetail = ({ post }) => {
   return (
     <>
       <div className="bg-white  font-myfont mt-20 md:mt-0 rounded-xl pb-6 mb-8">
-
         <div className="mx-4 mb-6">
           <div>
             {post.categories && (
-            <div className="text-blue-500 text-xs text-shadow">
-              {post.categories
-                .map((category) => category.name)
-                .join()}
-            </div>
+              <div className="text-blue-500 text-xs text-shadow">
+                {post.categories.map((category) => category.name).join()}
+              </div>
             )}
           </div>
           <h1 className="my-2 text-2xl md:text-4xl font-semibold">
@@ -115,11 +116,9 @@ const PostDetail = ({ post }) => {
               </svg>
               <span className="align-middle text-xs">
                 {moment(post.createdAt).format('DD MMM, YYYY')}
-
               </span>
             </div>
           </div>
-
         </div>
         <div className="relative overflow-hidden mb-6">
           <Image
@@ -132,7 +131,6 @@ const PostDetail = ({ post }) => {
         </div>
         <div className=" font-myfont  text-justify text-md">
           <div className="flex items-center justify-evenly mb-8  " />
-
           {post.youtubelink && (
             <div className="mb-8">
               <iframe
@@ -146,24 +144,15 @@ const PostDetail = ({ post }) => {
               />
             </div>
           )}
-
-          {post.content.raw.children.map(
-            (typeObj, index) => {
-              const children = typeObj.children.map(
-                (item, itemindex) => getContentFragment(
-                  itemindex,
-                  item.text,
-                  item,
-                ),
-              );
-              return getContentFragment(
-                index,
-                children,
-                typeObj,
-                typeObj.type,
-              );
-            },
-          )}
+          {post.content.raw.children.map((typeObj, index) => {
+            const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+            return getContentFragment(
+              index,
+              children,
+              typeObj,
+              typeObj.type,
+            );
+          })}
         </div>
       </div>
     </>
