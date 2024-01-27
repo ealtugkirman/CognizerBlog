@@ -1,6 +1,7 @@
-// Import necessary modules
-import React from "react";
-import { useRouter } from "next/router";
+'use client';
+
+import React from 'react';
+import { useRouter } from 'next/router';
 
 import {
   PostDetail,
@@ -8,9 +9,9 @@ import {
   Comments,
   CommentsForm,
   Loader,
-} from "../../components";
-import { getPosts, getPostDetails } from "../../services";
-import { AdjacentPosts } from "../../sections";
+} from '../../components';
+import { getPosts, getPostDetails } from '../../services';
+import { AdjacentPosts } from '../../sections';
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
@@ -53,14 +54,14 @@ export async function getStaticProps({ params }) {
     // Handle rate-limiting error
     if (error.response?.status === 429) {
       // Implement retry logic or notify the user about the rate-limiting issue
-      console.error("Rate limit exceeded. Please try again later.");
+      console.error('Rate limit exceeded. Please try again later.');
       return {
         notFound: true,
       };
     }
 
     // Handle other errors
-    console.error("Error fetching post details:", error.message);
+    console.error('Error fetching post details:', error.message);
     return {
       notFound: true,
     };
@@ -77,7 +78,7 @@ export async function getStaticPaths() {
       fallback: true,
     };
   } catch (error) {
-    console.error("Error fetching posts:", error.message);
+    console.error('Error fetching posts:', error.message);
     return {
       paths: [],
       fallback: true,
