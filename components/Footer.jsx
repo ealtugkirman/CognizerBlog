@@ -1,27 +1,30 @@
-import React from 'react';
-import Link from 'next/dist/client/link';
-import { FaTwitter } from 'react-icons/fa';
-import Image from 'next/image';
-import CognizerLogo from '../public/assets/thecognizer.png';
-import CogistLogo from '../public/assets/cogistLogo.png';
+import React from "react";
+import Link from "next/dist/client/link";
+import { FaTwitter } from "react-icons/fa";
+import Image from "next/image";
+import CognizerLogo from "../public/assets/thecognizer.png";
+import CogistLogo from "../public/assets/cogistLogo.png";
 
 const Footer = () => (
   <div className="flex items-center justify-center bg-gradient-to-r from-blue-500 via-blue-500 to-black">
     <div className="md:w-2/3 px-4 mt-20 text-white flex flex-col">
       <div className="text-center justify-center">
         <div className="items-center justify-center flex">
-
           <Image
             src={CognizerLogo}
             width={100}
             height={100}
             alt="cognitive.com"
           />
-          <p className="text-3xl  lg:text-7xl ml-12" style={{ fontFamily: 'var(--font-futura)' }}>
+          <p
+            className="text-3xl  lg:text-7xl ml-12"
+            style={{ fontFamily: "var(--font-futura)" }}>
             THE COGNIZER
           </p>
         </div>
-        <p className=" text-2xl lg:text-4xl" style={{ fontFamily: 'var(--font-futura)' }}>
+        <p
+          className=" text-2xl lg:text-4xl"
+          style={{ fontFamily: "var(--font-futura)" }}>
           Extending Cognition
         </p>
       </div>
@@ -39,22 +42,19 @@ const Footer = () => (
           <Link
             href="/aboutUs"
             className="md:block cursor-pointer text-sm md:text-lg text-gray-400 hover:text-white uppercase"
-            aria-label="Hakkımızda"
-          >
+            aria-label="Hakkımızda">
             About Us
           </Link>
           <Link
             href="/publishingPolicy"
             className="md:block cursor-pointer text-sm md:text-lg text-gray-400 hover:text-white uppercase"
-            aria-label="Amaçımız"
-          >
+            aria-label="Amaçımız">
             Publishing Policy
           </Link>
           <Link
             href="/contactUs"
             className="md:block cursor-pointer text-sm md:text-lg text-gray-400 hover:text-white uppercase"
-            aria-label="İletişim"
-          >
+            aria-label="İletişim">
             Contact Us
           </Link>
           <div className="flex text-2xl flex-row space-x-8 items-center justify-between">
@@ -64,15 +64,21 @@ const Footer = () => (
           </div>
         </div>
         <hr className="border-gray-600" />
-        <div className="justify-center items-center mx-auto mt-12"> <Image
-          src={CogistLogo}
-          width={220}
-          height={100}
-          alt="cognitive.com"
-        />
-          <a href="https://www.digitalvoyage.agency/" className="text-center my-12 text-gray-600">
-            Copyright © 2024 Digital Voyage Agency
-          </a>
+        <div className="flex flex-col justify-center items-center mx-auto mt-12">
+          {" "}
+          <Image
+            src={CogistLogo}
+            width={220}
+            height={100}
+            alt="cognitive.com"
+          />
+          <div>
+            <a
+              href="https://www.digitalvoyage.agency/"
+              className="text-center my-12 text-gray-600">
+              Copyright © 2024 Digital Voyage Agency
+            </a>
+          </div>
         </div>
       </div>
     </div>
