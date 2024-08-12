@@ -75,7 +75,7 @@ const Footer = () => (
           <div>
             <a
               href="https://www.digitalvoyage.agency/"
-              className="text-center my-12 text-gray-600">
+              className="text-center my-12 mt-4 text-gray-600">
               Copyright © 2024 Digital Voyage Agency
             </a>
           </div>
