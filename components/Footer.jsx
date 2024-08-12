@@ -70,9 +70,9 @@ const Footer = () => (
           height={100}
           alt="cognitive.com"
         />
-          <p className="text-center my-12 text-gray-600">
-            Copyright © 2023 rely-labs.com
-          </p>
+          <a href="https://www.digitalvoyage.agency/" className="text-center my-12 text-gray-600">
+            Copyright © 2024 Digital Voyage Agency
+          </a>
         </div>
       </div>
     </div>
